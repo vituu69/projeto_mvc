@@ -1,0 +1,42 @@
+@model WebProjct.Models.Seller
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<h3>tem certeza que deseja deletar isso</h3>
+
+<div>
+    <h4>Seller</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            <dd>
+                @Html.DisplayNameFor(model => model.Name)
+            </dd>
+        </dt>
+        <dt>
+            <dd>
+                @Html.DisplayNameFor(model => model.Email)
+            </dd>
+        </dt>
+        <dt>
+            <dd>
+                @Html.DisplayNameFor(model => model.BirthDate)
+            </dd>
+        </dt>
+        <dt>
+            <dd>
+                @Html.DisplayNameFor(model => model.BaseSalary)
+            </dd>
+        </dt>
+    </dl>
+
+    <form asp-action="ApagarConfirmacao">
+        <input type="hidden" asp-for="Id" />
+        <input type="submit" value="ApagarConfirmacao" class="btn btn-danger" />
+        <a asp-action="index" class="btn btn-primary">voltar pra lista</a>
+    </form>
+</div>

@@ -1,0 +1,47 @@
+@model List<WebProjct.Models.Department>
+
+@{
+    ViewData["Title"] = "Departamentos";
+}
+
+<div class="text-center">
+    <div class="d-grid-2 d-md-flex justify-content-md-start">
+        <a class="btn btn-primary" role="button" asp-controller="Departments" asp-action="Criar">Adicionar novo departamento</a>
+    </div>
+    <br />
+    <h1 class="display-4">Listagem de Departamentos</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Nome</th>
+                <th>Ações</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Any())
+            {
+                foreach (var departamento in Model)
+                {
+                    <tr>
+                        <th>@departamento.Id</th>
+                        <td>@departamento.Name</td>
+                        <td>
+                            <div class="btn-group" role="group">
+                                <a class="btn btn-primary" asp-controller="Departments" asp-action="Criar">Adicionar</a>
+                                <a class="btn btn-primary" asp-controller="Departments" asp-action="Editar" asp-route-id="@departamento.Id">Editar</a>
+                                <a class="btn btn-danger" asp-controller="Departments" asp-action="ApagarConfirmacao" asp-route-id="@departamento.Id">Apagar</a>
+
+                            </div>
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr><td colspan="3">Nenhum departamento encontrado.</td></tr>
+            }
+        </tbody>
+    </table>
+</div>

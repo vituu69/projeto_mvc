@@ -1,0 +1,18 @@
+@model WebProjct.Models.Department
+
+@{
+    ViewData["Title"] = "Confirmar Exclusão";
+}
+
+<h2>Você tem certeza que deseja apagar este departamento?</h2>
+
+<div>
+    <p><strong>ID:</strong> @Model.Id</p>
+    <p><strong>Nome:</strong> @Model.Name</p>
+</div>
+
+<form asp-action="Apagar">
+    <input type="hidden" asp-for="Id" />
+    <button type="submit" class="btn btn-danger">Apagar</button>
+    <a asp-action="Index" class="btn btn-secondary">Cancelar</a>
+</form>

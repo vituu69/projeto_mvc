@@ -1,0 +1,18 @@
+@model WebProjct.Models.Department
+
+@{
+    ViewData["Title"] = "Criar Departamento";
+}
+
+<h2>Criar Novo Departamento</h2>
+
+<form asp-action="Criar">
+    <div class="form-group">
+        <label asp-for="Name">Nome</label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+    </div>
+    <br />
+    <button type="submit" class="btn btn-success">Salvar</button>
+    <a asp-action="Index" class="btn btn-secondary">Voltar</a>
+</form>
